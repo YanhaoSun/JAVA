@@ -1,6 +1,9 @@
 package Daily_Implementation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 /*Write a function that takes an array of numbers (integers for the tests) and a target number.
 It should find two different items in the array that, when added together, give the target value.
@@ -31,9 +34,32 @@ public class TwoSum
         return result; // Do your magic!
     }
 
+    //使用 hashtable to implement
+    public int[] twoSum_Hashtable(int[] nums, int target)
+    {
+        Map<Integer, Integer> store = new HashMap<Integer, Integer>();
+        int[] result = new int[2];
+        for(int i=0; i<nums.length; i++)
+        {
+            if(store.containsKey(target-nums[i]))
+            {
+                result[0] = store.get(target-nums[i]);
+                result[1] = i;
+            }
+            store.put(nums[i], i);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int[] first = twoSum(new int[]{1, 2, 3}, 4);
         for(int a: first)
+        {
+            System.out.print(a);
+        }
+        System.out.println();
+        int[] second = twoSum(new int[]{3,2,4}, 6);
+        for(int a: second)
         {
             System.out.print(a);
         }
