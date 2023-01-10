@@ -1,6 +1,5 @@
 package Daily_Implementation;
 
-import practices.pra1;
 
 public class reverse_Words_In_String
 {
