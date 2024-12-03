@@ -1,6 +1,6 @@
 package array;
 
-public class sortedSquares {
+public class YouXuShuZuPingFang {
     //做法一: 使用merge sort解决问题
     //1-先给每个数平方
     //2-然后再用merge sort进行排序
@@ -57,6 +57,24 @@ public class sortedSquares {
         }
     }
 
+
+    public static int[] sortedArraySquare(int[] array){
+        int front = 0;
+        int rear = array.length-1;
+        int[] newArray = new int[array.length];
+        for (int i=newArray.length-1; i>=0; i--){
+            if (array[front]*array[front] >= array[rear]*array[rear]){
+                newArray[i] = array[front]*array[front];
+                front ++;
+            } else if (array[front]*array[front] <= array[rear]*array[rear]){
+                newArray[i] = array[rear]*array[rear];
+                rear --;
+            }
+        }
+        return newArray;
+    }
+
+
     //做法二: 使用双指针
     //1-i指向开头, j指向末尾
     //2-创建一个新数组result, 比较 array[i]*array[i] 和 array[j]*array[j], 把较大的存入result, 从后往前给result赋值
@@ -88,7 +106,7 @@ public class sortedSquares {
         int[] array1 = {-7,-3,2,3,11};
         int[] array2 = {0};
         //int[] result = sortedSquares.sortedSquares1(array2);
-        int[] result = sortedSquares.sortedSquares2(array1);
+        int[] result = YouXuShuZuPingFang.sortedArraySquare(array);
         for(int a: result)
         {
             System.out.print(a+" ");

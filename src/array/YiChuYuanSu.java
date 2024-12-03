@@ -1,6 +1,6 @@
 package array;
 
-public class removeElement
+public class YiChuYuanSu
 {
     public int removeEle1(int[] nums, int val) {
         boolean quit;
@@ -45,6 +45,22 @@ public class removeElement
         return result;
     }
 
+
+    public int removeElem(int[] nums, int val){
+        int slow = 0;
+        for(int fast = 0; fast<nums.length; fast++){
+            if(nums[fast]!=val){
+                nums[slow++]=nums[fast];
+            }
+        }
+        return slow;
+    }
+
+
+
+
+
+
     //双指针法
     public int removeEle(int[] nums, int val)
     {
@@ -63,13 +79,13 @@ public class removeElement
     public static void main(String[] args) {
         int[] nums1 = {3,2,2,3};
         int val1 = 3;
-        removeElement test1 = new removeElement();
+        YiChuYuanSu test1 = new YiChuYuanSu();
         int result1 = test1.removeEle(nums1, val1);
         System.out.println("result1 = "+result1+"\n");
 
         int[] nums2 = {0,1,2,2,3,0,4,2};
         int val2 = 3;
-        removeElement test2 = new removeElement();
+        YiChuYuanSu test2 = new YiChuYuanSu();
         int result2 = test2.removeEle(nums2, val2);
         System.out.println("result2 = "+result2);
     }
