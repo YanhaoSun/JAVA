@@ -1,9 +1,20 @@
 package practices;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class test {
     public static void main(String[] args) {
-        ArrayList<Integer> teams = new ArrayList<>();
+        String str = null;
+        System.out.println(str.length());
+
+    }
+
+    public static int methodA() {
+        try {
+            return 10;
+        } finally {
+            System.out.println("Finally block executed");
+        }
     }
 }

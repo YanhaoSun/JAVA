@@ -1,6 +1,6 @@
 package array;
 //二分搜索用来找一个数的插入位置
-import practices.Pra;
+//import practices.Pra;
 
 public class searchInsert {
     public int searchInsert1(int[] nums, int target) {
