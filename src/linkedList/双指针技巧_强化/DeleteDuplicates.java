@@ -35,6 +35,27 @@ public class DeleteDuplicates {
         }
         return dummyUni.next;
     }
+    public static ListNode solutionPra(ListNode head){
+        ListNode dummyUni = new ListNode(101);
+        ListNode dummyDup = new ListNode(101);
+        ListNode pUni, pDup, p;
+        pUni = dummyUni;
+        pDup = dummyDup;
+        p = head;
+        while (p!=null){
+            if ((p.next!=null && p.val==p.next.val) || p.val==pDup.val){
+                pDup.next = p;
+                pDup = pDup.next;
+            } else {
+                pUni.next = p;
+                pUni = pUni.next;
+            }
+            p = p.next;
+            pDup.next = null;
+            pUni.next = null;
+        }
+        return dummyUni.next;
+    }
 
     /**
      * 解法二 快慢双指针解法
@@ -42,6 +63,29 @@ public class DeleteDuplicates {
      * @return
      */
     public static ListNode solution1(ListNode head){
+        ListNode dummy = new ListNode(-1);
+        ListNode p1, p;
+        p1 = dummy;
+        p = head;
+        while (p!=null){
+            if (p.next!=null && p.val==p.next.val){
+                p = p.next;
+                while (p.next!=null && p.val==p.next.val){
+                    p = p.next;
+                }
+                p = p.next;
+                if (p==null){
+                    p1.next = null;
+                }
+            } else {
+                p1.next = p;
+                p1 = p1.next;
+                p = p.next;
+            }
+        }
+        return dummy.next;
+    }
+    public static ListNode solution1Pra(ListNode head){
         ListNode dummy = new ListNode(-1);
         ListNode p1, p;
         p1 = dummy;
