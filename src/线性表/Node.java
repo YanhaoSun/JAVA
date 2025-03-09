@@ -7,6 +7,7 @@ public class Node {
     public Node left;
     public Node right;
     public Node parent;
+    public Node next;
     public Node() {}
     public Node(int val) { this.val = val; }
     public Node(int val, Node left, Node right, Node parent) {
@@ -14,5 +15,12 @@ public class Node {
         this.right = right;
         this.left = left;
         this.parent = parent;
+    }
+    public Node(int val, Node left, Node right, Node parent, Node next) {
+        this.val = val;
+        this.right = right;
+        this.left = left;
+        this.parent = parent;
+        this.next = next;
     }
 };
