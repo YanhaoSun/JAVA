@@ -31,9 +31,10 @@ public class SimplifyPath {
 
     public static void main(String[] args) {
 //        String a = "/home/ /foo/";
-//        String[] parts = a.split("/");
-//        for (String part: parts){
-//            System.out.print(part);
-//        }
+        String a = "/../";
+        String[] parts = a.split("/");
+        for (String part: parts){
+            System.out.print(part);
+        }
     }
 }

@@ -27,4 +27,16 @@ public class ValidParentheses {
         if (c==']') return '[';
         return '{';
     }
+
+    public static void main(String[] args) {
+        String s = "([}}])";
+//        boolean result = isValidPrac(s);
+//        System.out.println(result);
+        String a = "9";
+        int b = Integer.valueOf(a);
+        System.out.println(b/3);
+        switch (a){
+            case "9":
+        }
+    }
 }

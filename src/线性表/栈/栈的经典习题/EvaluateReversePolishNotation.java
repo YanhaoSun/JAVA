@@ -33,9 +33,42 @@ public class EvaluateReversePolishNotation {
         }
         return characters.pop();
     }
+    public static int evalRPNPrac(String[] tokens){
+        Stack<Integer> stack = new Stack<>();
+        int result=0;
+        for (String token: tokens){
+            if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")){
+                Integer val1 = stack.pop();
+                Integer val2 = stack.pop();
+//                System.out.println("val1 = "+val1);
+//                System.out.println("val2 = "+val2);
+                switch (token){
+                    case "+":
+                        result = val2+val1;
+                        break;
+                    case "-":
+                        result = val2-val1;
+                        break;
+                    case "*":
+                        result = val2*val1;
+                        break;
+                    case "/":
+                        result = val2/val1;
+                        break;
+                }
+                stack.push(result);
+            } else {
+                Integer val1 = Integer.valueOf(token);
+//                System.out.println("val1 = "+val1);
+                stack.push(val1);
+            }
+        }
+        return stack.pop();
+    }
 
     public static void main(String[] args) {
-        String[] test = {"4","13","5","/","+"};
-        System.out.println(evalRPN(test));
+//        String[] test = {"4","13","5","/","+"};
+        String[] test = {"18"};
+        System.out.println(evalRPNPrac(test));
     }
 }

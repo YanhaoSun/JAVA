@@ -29,4 +29,33 @@ public class ReorderList {
             p = next;
         }
     }
+    public static void solution1(ListNode head){
+        Stack<ListNode> stack = new Stack<>();
+        ListNode p = head;
+        while (p!=null){
+            stack.push(p);
+            p = p.next;
+        }
+        p = head;
+        while (!stack.isEmpty()){
+            ListNode lastNode = stack.pop();
+            ListNode next = p.next;
+            if (lastNode==p || lastNode==next){
+                lastNode.next = null;
+                break;
+            }
+            p.next = lastNode;
+            lastNode.next = next;
+            p = next;
+        }
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next=  new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        solution1(head);
+    }
 }

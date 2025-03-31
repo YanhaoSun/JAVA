@@ -1,7 +1,10 @@
 package 线性表.队列.队列的经典习题;
 
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 
 public class TimeNeededToBuyTickets {
     public int timeRequiredToBuy1(int[] tickets, int k) {
@@ -111,6 +114,7 @@ public class TimeNeededToBuyTickets {
         int k = 0;
         int res = timeRequiredToBuy2(time, k);
         System.out.println(res);
+        Deque<Integer> line = new LinkedList<>();
     }
 
 }
