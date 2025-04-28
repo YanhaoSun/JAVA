@@ -30,4 +30,10 @@ public class SumRootToLeafNumbers {
         traverse(root.right);
         path.deleteCharAt(path.length()-1);
     }
+
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(1);
+        sb.deleteCharAt(sb.length()-1);
+    }
 }

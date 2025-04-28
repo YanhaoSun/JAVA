@@ -29,12 +29,42 @@ public class BinaryTreePaths {
         traverse(root.right);
         path.removeLast();
     }
+
+//    LinkedList<String> res = new LinkedList<>();
+//    public List<String> binaryTreePaths(TreeNode root) {
+//        LinkedList<String> path = new LinkedList<>();
+//        traverse(root, path);
+//        return res;
+//    }
+//    public void traverse(TreeNode root, LinkedList<String> path){
+//        if (root==null){
+//            return;
+//        }
+//        if(root.left==null && root.right==null){
+//            path.addLast(root.val+"");
+//            res.addLast(String.join("->", path));
+//            path.removeLast();
+//            // return;
+//        }
+//        path.addLast(root.val+"");
+//
+//        traverse(root.left, path);
+//        traverse(root.right, path);
+//
+//        path.removeLast();
+//    }
+
+
+
     public static void main(String[] args) {
-        LinkedList<String> a = new LinkedList<>();
-        a.addLast("a");
-        a.addLast("b");
-        LinkedList<String> result = new LinkedList<>();
-        result.addLast(String.join("->", a));
-        System.out.println(result);
+//        LinkedList<String> a = new LinkedList<>();
+//        a.addLast("1");
+//        a.addLast("2");
+//        LinkedList<String> result = new LinkedList<>();
+//        result.addLast(String.join("", a));
+//        System.out.println(Integer.parseInt(String.join("", result)));
+
+        String a = "1";
+        System.out.println(Integer.parseInt(a));
     }
 }

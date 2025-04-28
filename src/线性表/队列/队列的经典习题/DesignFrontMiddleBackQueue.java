@@ -1,6 +1,7 @@
 package 线性表.队列.队列的经典习题;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class DesignFrontMiddleBackQueue {
     LinkedList<Integer> left = new LinkedList<>();
@@ -72,28 +73,30 @@ public class DesignFrontMiddleBackQueue {
         return left.size()+right.size();
     }
     public static void main(String[] args) {
-        LinkedList<Integer> a = new LinkedList<>();
-        a.addFirst(1);
-        a.addFirst(2);
-        a.addFirst(3);
-        a.addFirst(4);
-        a.addFirst(5);
+//        LinkedList<Integer> a = new LinkedList<>();
+//        a.addFirst(1);
+//        a.addFirst(2);
+//        a.addFirst(3);
+//        a.addFirst(4);
+//        a.addFirst(5);
+//
+//        a.addLast(9);
+//        a.addLast(8);
+//        a.addLast(7);
+//        a.addLast(6);
+//
+//        for(int num: a){
+//            System.out.print(num+" ");
+//        }
+//        System.out.println();
+//        a.removeFirst();
+//        a.removeFirst();
+//        a.removeLast();
+//        a.removeLast();
+//        for(int num: a){
+//            System.out.print(num+" ");
+//        }
 
-        a.addLast(9);
-        a.addLast(8);
-        a.addLast(7);
-        a.addLast(6);
-
-        for(int num: a){
-            System.out.print(num+" ");
-        }
-        System.out.println();
-        a.removeFirst();
-        a.removeFirst();
-        a.removeLast();
-        a.removeLast();
-        for(int num: a){
-            System.out.print(num+" ");
-        }
+        System.out.println(Math.max(1, 1));
     }
 }

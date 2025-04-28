@@ -154,4 +154,11 @@ public class SerializeAndDeserializeBinaryTree {
         }
         return root;
     }
+
+    public static void main(String[] args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(4+"->");
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        System.out.println(stringBuilder.toString());
+    }
 }

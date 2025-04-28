@@ -57,6 +57,8 @@ public class SumOfRootToLeafBinaryNumbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculateBinary("100"));
+//        System.out.println(calculateBinary("100"));
+        Character c = '1';
+        System.out.println(Character.valueOf(c)+1);
     }
 }
