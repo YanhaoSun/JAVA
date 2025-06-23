@@ -68,4 +68,30 @@ public class DeleteDuplicatesUnsorted {
         }
         return dummyUni.next;
     }
+    public static ListNode solutionPra1(ListNode head){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ListNode p = head;
+        while (p!=null){
+            map.put(p.val, map.getOrDefault(p.val, 0)+1);
+            p = p.next;
+        }
+        ListNode dummyUni = new ListNode(101);
+        ListNode dummyDup = new ListNode(101);
+        ListNode pUni = dummyUni;
+        ListNode pDup = dummyDup;
+        p = head;
+        while (p!=null){
+            if (map.get(p.val)>1){
+                pDup.next = p;
+                pDup = pDup.next;
+            } else {
+                pUni.next = p;
+                pUni = pUni.next;
+            }
+            ListNode temp = p.next;
+            p.next = null;
+            p = temp;
+        }
+        return dummyUni.next;
+    }
 }

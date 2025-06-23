@@ -1,5 +1,8 @@
 package 线性表.数组.差分数组;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 力扣1109
  * medium
@@ -42,6 +45,21 @@ public class CorporateFlightBookings {
         }
     }
 
+    /**
+     * 解法二
+     */
+    public int[] corpFlightBookings2(int[][] bookings, int n) {
+        int[] diff = new int[n];
+        for (int[] bo: bookings){
+            insert(bo[0]-1, bo[1]-1, bo[2], diff);
+        }
+        return diff;
+    }
+    public void insert(int i, int j, int value, int[] diff){
+        for (int m=i; m<=j; m++) {
+            diff[m] += value;
+        }
+    }
     public static void main(String[] args) {
 
     }

@@ -172,5 +172,8 @@ public class FourSum {
         for (List<Integer> tuple: fourSumRecursion){
             System.out.println(tuple);
         }
+        String[] a = new String[2];
+        String.join(" ", a);
+//        Character.to
     }
 }

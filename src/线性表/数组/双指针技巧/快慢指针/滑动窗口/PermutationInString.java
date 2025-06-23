@@ -1,4 +1,4 @@
-package 线性表.顺序存储结构.Array.双指针技巧.快慢指针.滑动窗口;
+package 线性表.数组.双指针技巧.快慢指针.滑动窗口;
 
 import java.util.HashMap;
 

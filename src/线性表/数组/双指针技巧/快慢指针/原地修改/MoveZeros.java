@@ -2,6 +2,9 @@ package 线性表.数组.双指针技巧.快慢指针.原地修改;
 
 import list.ListNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 力扣283
  * easy
@@ -26,6 +29,5 @@ public class MoveZeros {
     }
 
     public static void main(String[] args) {
-
     }
 }

@@ -133,4 +133,9 @@ public class DeleteDuplicates {
         // 直接返回那个不重复节点开头的链表的去重结果，就把重复节点删掉了
         return deleteDuplicates(head.next);
     }
+
+    public static void main(String[] args) {
+        int[][] ma = new int[10][10];
+        int a = ma.length;
+    }
 }

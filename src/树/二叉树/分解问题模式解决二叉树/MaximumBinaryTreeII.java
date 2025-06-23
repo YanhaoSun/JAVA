@@ -1,5 +1,8 @@
 package 树.二叉树.分解问题模式解决二叉树;
 import BinaryTree.TreeNode;
+
+import java.util.HashSet;
+
 /**
  * 力扣998
  * medium
@@ -37,5 +40,10 @@ public class MaximumBinaryTreeII {
         // root.left = left;
         root.right = right;
         return root;
+    }
+
+    public static void main(String[] args) {
+        HashSet<Integer> hashSet = new HashSet<>();
+//        hashSet.re
     }
 }

@@ -66,5 +66,8 @@ public class BinaryTreePaths {
 
         String a = "1";
         System.out.println(Integer.parseInt(a));
+        StringBuilder sb = new StringBuilder();
+        sb.append((char)(1+'a'));
+//        sb.charAt(Integer.par);
     }
 }

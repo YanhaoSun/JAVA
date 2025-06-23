@@ -2,6 +2,7 @@ package 树.二叉树.二叉树的层序遍历;
 import BinaryTree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
@@ -69,5 +70,8 @@ public class MaximumWidthOfBinaryTree {
         }
         traverse(root.left, 2*id, depth+1);
         traverse(root.right, 2*id+1, depth+1);
+    }
+
+    public static void main(String[] args) {
     }
 }

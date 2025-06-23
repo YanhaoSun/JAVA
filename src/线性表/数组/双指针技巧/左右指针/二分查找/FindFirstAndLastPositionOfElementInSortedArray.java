@@ -1,4 +1,4 @@
-package 线性表.顺序存储结构.Array.双指针技巧.左右指针.二分查找;
+package 线性表.数组.双指针技巧.左右指针.二分查找;
 
 public class FindFirstAndLastPositionOfElementInSortedArray {
     public static int[] searchRange(int[] nums, int target) {

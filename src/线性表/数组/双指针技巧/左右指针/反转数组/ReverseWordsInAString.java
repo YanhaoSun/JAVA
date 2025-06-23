@@ -54,8 +54,36 @@ public class ReverseWordsInAString {
         return String.valueOf(word);
     }
 
+    public static String reverseWords3(String s) {
+        String[] sentences = s.trim().split("\\s+");
+        for (int i=0; i<sentences.length; i++){
+            sentences[i] = reverse(sentences[i]);
+        }
+        String result = String.join(" ", sentences);
+        return reverse(result);
+    }
+    public static String reverse(String s){
+        int start = 0;
+        int end = s.length()-1;
+        char[] c = s.toCharArray();
+        while (start<end){
+            char temp = c[start];
+            c[start] = c[end];
+            c[end] = temp;
+            start++;
+            end--;
+        }
+        return new String(c);
+    }
+
     public static void main(String[] args) {
-        String s = "  hello   world  ";
-        reverseWords(s);
+        String s = "  hello      world  ";
+//        String[] sentences = s.trim().split("\\s+");
+//        String[] sentences = s.split(" ");
+//        for (String sen: sentences){
+//            System.out.print(sen);
+//        }
+        String result = reverseWords3(s);
+        System.out.println(result);
     }
 }

@@ -29,4 +29,8 @@ public class MaximumBinaryTree {
         root.right = right;
         return root;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

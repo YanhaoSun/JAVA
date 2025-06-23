@@ -2,76 +2,49 @@ package practices;
 
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Pra1 {
-
-
-        public static int MathChallenge(int num) {
-            char[] digits = String.valueOf(num).toCharArray();
-            int n = digits.length;
-
-            // Step 1: 从右向左找到第一个违反升序规则的数字
-            int i = n - 2;
-            while (i >= 0 && digits[i] >= digits[i + 1]) {
-                i--;
-            }
-
-            // 如果没找到，说明已经是最大排列
-            if (i < 0) {
-                return -1;
-            }
-
-            // Step 2: 从右向左找到比 digits[i] 大的最小数字
-            int j = n - 1;
-            while (digits[j] <= digits[i]) {
-                j--;
-            }
-
-            // Step 3: 交换 digits[i] 和 digits[j]
-            char temp = digits[i];
-            digits[i] = digits[j];
-            digits[j] = temp;
-
-            // Step 4: 反转 i+1 到末尾的数字
-            reverse(digits, i + 1, n - 1);
-//            int result = Integer.parseInt(new String(digits));
-//            String token = "ih903y7lb";
-//            String resultString = String.valueOf(result);
-//            for (char ch : token.toCharArray()){
-//                resultString = resultString.replace(String.valueOf(ch), "--"+ch+"--");
-//            }
-//            return Integer.parseInt(resultString);
-
-            // 转回整数
-            return Integer.parseInt(new String(digits));
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] nums = new int[length];
+        Difference difference = new Difference(nums);
+        for (int[] update: updates){
+            int i = update[0];
+            int j = update[1];
+            int val = update[2];
+            difference.increment(i, j, val);
         }
-
-        // 辅助方法：反转字符数组的一部分
-        private static void reverse(char[] arr, int start, int end) {
-            while (start < end) {
-                char temp = arr[start];
-                arr[start] = arr[end];
-                arr[end] = temp;
-                start++;
-                end--;
+        return difference.result();
+    }
+    public class Difference{
+        int[] diff;
+        public Difference(int[] nums){
+            diff = new int[nums.length];
+            diff[0] = nums[0];
+            for (int i=1; i<nums.length; i++){
+                diff[i] = nums[i] - nums[i-1];
             }
         }
-
-        public static void main(String[] args) {
-            // 读取输入并调用方法
-            Scanner s = new Scanner(System.in);
-            System.out.println("Enter a number:");
-            int num = s.nextInt();
-            int result = MathChallenge(num);
-            System.out.println("Output: " + result);
-
-            // 根据 ChallengeToken 替换字符
-            String token = "ih903y7lb";
-            String resultStr = String.valueOf(result);
-            for (char ch : token.toCharArray()) {
-                resultStr = resultStr.replace(String.valueOf(ch), "--" + ch + "--");
+        public void increment(int i, int j, int val){
+            diff[i] += val;
+            if (j+1<diff.length){
+                diff[j+1] -= val;
             }
-            System.out.println("Final Output: " + resultStr);
         }
+        public int[] result(){
+            int[] res = new int[diff.length];
+            res[0] = diff[0];
+            for (int i=1; i<diff.length; i++){
+                res[i] = res[i-1]+diff[i];
+            }
+            return res;
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+    }
 }

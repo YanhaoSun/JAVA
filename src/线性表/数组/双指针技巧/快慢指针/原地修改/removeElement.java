@@ -22,6 +22,7 @@ public class removeElement {
 
     public static void main(String[] args) {
         int[] array = new int[]{3,2,2,3};
-        solution(array, 3);
+        int res = solution(array, 3);
+        System.out.println("res = "+res);
     }
 }

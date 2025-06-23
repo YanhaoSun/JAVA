@@ -34,4 +34,9 @@ public class DeleteNodesAndReturnForest {
         root.right = delHelper(root.right, !deleted);
         return deleted? null:root;
     }
+
+    public static void main(String[] args) {
+//        LinkedList<Integer> levelSum = new LinkedList<>();
+//        levelSum.getFirst()
+    }
 }
