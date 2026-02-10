@@ -2,86 +2,93 @@ package 线性表.数组.cycleArray;
 
 import java.util.NoSuchElementException;
 
-public class CycleArrayPrac<E> {
-    E[] cycleArray;
-    int start, end;
-    int count;
-    public CycleArrayPrac(int cap){
-        cycleArray = (E[]) new Object[cap];
-        start = end = 0;
-        count = 0;
+public class CycleArrayPrac<T> {
+   public T[] arr;
+   public int start;
+   public int end;
+   public int count;
+   public int size;
+
+   public CycleArrayPrac() {
+       this(1);
+   }
+
+   public CycleArrayPrac(int size) {
+       this.arr = (T[])new Object[size];
+       this.start = 0;
+       this.end = 0;
+       this.count = 0;
+       this.size = size;
+   }
+
+   public void reSize(int newSize) {
+       T[] newArr = (T[]) new Object[newSize];
+       for (int i = 0; i < count; i++) {
+           newArr[i] = arr[(i + start) % size];
+       }
+       this.arr = newArr;
+       this.start = 0;
+       this.end = count;
+       this.size = newSize;
+   }
+
+   public void addFirst(T val) {
+       if (isFull()) {
+           reSize(size * 2);
+       }
+       start = (start - 1 + size) % size;
+       arr[start] = val;
+       count ++;
+   }
+
+   public void removeFirst() {
+       if (isEmpty()) {
+           throw new IllegalStateException("Array is Empty");
+       }
+       arr[start] = null;
+       start = (start + 1) % size;
+       count --;
+       if (count > 0 && count == size/4) {
+           reSize(size/2);
+       }
+   }
+
+   public void addLast(T val) {
+       if (isFull()) {
+           reSize(size*2);
+       }
+       arr[end] = val;
+       end = (end + 1) % size;
+       count ++;
+   }
+
+   public void removeLast() {
+       if (isEmpty()) {
+           throw new IllegalStateException("Array is Empty");
+       }
+       end = (end - 1 + size) % size;
+       arr[end] = null;
+       count --;
+       if (count > 0 && count == size/4) {
+           reSize(size/2);
+       }
+   }
+    public T getFirst() {
+       if (isEmpty()) {
+           throw new IllegalStateException("Array is Empty");
+       }
+       return arr[start];
     }
-    public void addFirst(E val){
-        if (isFull()){
-            resize(size()*2);
-        }
-        start = (start-1+size())%size();
-        cycleArray[start] = val;
-        count++;
+    public T getLast() {
+       if (isEmpty()) {
+           throw new IllegalStateException("Array is Empty");
+       }
+       return arr[end];
     }
-    public void addLast(E val){
-        if (isFull()){
-            resize(size()*2);
-        }
-        cycleArray[end] = val;
-        end = (end+1)%size();
-        count++;
-    }
-    public void resize(int newSize){
-        E[] temp = (E[]) new Object[newSize];
-        for (int i=0; i<count; i++){
-            temp[i] = cycleArray[(start+i)%size()];
-        }
-        start = 0;
-        end = count;
-        cycleArray = temp;
-    }
-    public E removeFirst(){
-        if (isEmpty()){
-            throw new NoSuchElementException();
-        }
-        if (count==size()/4){
-            resize(size()/2);
-        }
-        E oldVal = cycleArray[start];
-        cycleArray[start] = null;
-        start = (start+1)%size();
-        count--;
-        return oldVal;
-    }
-    public E removeLast(){
-        if (isEmpty()){
-            throw new NoSuchElementException();
-        }
-        if (count==size()/4){
-            resize(size()/2);
-        }
-        E oldVal = cycleArray[end-1];
-        cycleArray[end-1] = null;
-        end = (end-1)%size();
-        count--;
-        return oldVal;
-    }
-    public E getFirst(){
-        if (isEmpty()){
-            throw new NoSuchElementException();
-        }
-        return cycleArray[start];
-    }
-    public E getLast(){
-        if (isEmpty()){
-            throw new NoSuchElementException();
-        }
-        end = (end-1+size())%size();
-        return cycleArray[end];
-    }
-    public boolean isEmpty(){
-        return count==0;
-    }
-    public int size(){
-        return count;
-    }
-    public boolean isFull(){
-        return count==cycleArray.length;
-    }
+   public boolean isFull() {
+       return count == size;
+   }
+   public boolean isEmpty() {
+       return count == 0;
+   }
 }

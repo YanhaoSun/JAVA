@@ -17,6 +17,23 @@ public class 反转链表前n个节点 {
         head.next = cur;
         return pre;
     }
+    public static ListNode reverse1Pra(ListNode head, int n) {
+        ListNode pre = null, cur = head, nxt = head.next;
+        while (n > 0) {
+            cur.next = pre;
+            pre = cur;
+            cur = nxt;
+            if (nxt != null) {
+                nxt = nxt.next;
+            }
+            n --;
+        }
+        head.next = cur;
+        return head;
+    }
+
+
+
 //    public static ListNode reverse1_Prac(ListNode head, int n){
 //    }
     //解法2, 递归解法
@@ -31,15 +48,16 @@ public class 反转链表前n个节点 {
         head.next = successor;
         return last;
     }
+
     static ListNode successor1 = null;
     public static ListNode reverse2_Prac(ListNode head, int n){
-        if (n==1){
+        if (n == 1) {
             successor1 = head.next;
             return head;
         }
         ListNode last = reverse2_Prac(head.next, n-1);
         head.next.next = head;
-        head.next = successor;
+        head.next = successor1;
         return last;
     }
 

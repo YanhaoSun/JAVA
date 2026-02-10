@@ -2,6 +2,7 @@ package practices;
 
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 
+import java.sql.SQLOutput;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -45,6 +46,12 @@ public class Pra1 {
     }
 
     public static void main(String[] args) {
-        Queue<Integer> q = new LinkedList<>();
+//        Queue<Integer> q = new LinkedList<>();
+        String query = "games = "+"123 = "+"456";
+        System.out.println("result : "+query.split("=")[1]);
+        System.out.println("result : "+query.split("games")[1].split("1")[1]);
+        for (String res: query.split("=")){
+            System.out.println("res : " + res);
+        }
     }
 }
